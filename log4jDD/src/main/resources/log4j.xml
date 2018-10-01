@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration 
+  xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<appender name="Console" class="org.apache.log4j.ConsoleAppender">
+	    <layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern" 
+			value="XML: %d %-5p %c{1}:%L - %m%n" />
+	    </layout>
+	</appender>
+
+	<appender name="RFA" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="C:\\RestfulJAXRSProject\\Workspace\\log4jDD\\src\\log\\rfa1.log" />
+	    <param name="append" value="false" />
+	    <param name="maxFileSize" value="10MB" />
+	    <param name="maxBackupIndex" value="10" />
+	    <layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern" 
+			value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+	    </layout>
+	</appender>
+	
+	<logger name="org.tutorial.jersey">
+	<level value ="TRACE" />
+	</logger>
+
+	<root>
+		<level value="WARN" />
+		<appender-ref ref="Console" />
+		<appender-ref ref="RFA" />
+	</root>
+
+	
+</log4j:configuration>
